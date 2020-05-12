@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mackosoft.testtrax.R
 import com.mackosoft.testtrax.contract.movielist.MovieListContractInterface
 import com.mackosoft.testtrax.databinding.FragmentMovieListBinding
@@ -62,6 +63,7 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list),
 
     override fun onFailedToLoadMovies() {
         // TODO
+
     }
 
 
@@ -69,7 +71,7 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list),
         val directions = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(
             movie.page.title,
             movie.details.locale.en.synopsis,
-            movie.clips[0].versions.enus.sizes.hd720.src, // TODO handle no trailer
+            movie.clips[0].versions.enus.sizes.hd720.srcAlt, // TODO handle no trailer
             movie.clips[0].thumb
         )
 
