@@ -1,0 +1,99 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.mackosoft.testtrax"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.0"
+
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+
+            zipAlignEnabled true
+            debuggable true
+
+            buildConfigField "boolean", "USES_APP_CENTER", "false"
+        }
+
+        release {
+            signingConfig signingConfigs.debug // no need for a proper release config for this test app
+
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "boolean", "USES_APP_CENTER", "true"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    viewBinding {
+        enabled = true
+    }
+
+}
+
+dependencies {
+    // AndroidX + Google
+    implementation "androidx.activity:activity-ktx:$activity_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "androidx.transition:transition:$transition_version"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayout_version"
+    implementation "androidx.vectordrawable:vectordrawable:$vectordrawable_version"
+
+    implementation "com.google.android.material:material:$material_version"
+    implementation "com.google.android.exoplayer:exoplayer:$exoplayer_version"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Image Loader
+    implementation ("com.github.bumptech.glide:glide:$glide_version") {
+        exclude group: "com.squareup.okhttp3"
+    }
+
+    // Retrofit + OkHttp
+    implementation ("com.squareup.retrofit2:retrofit:$retrofit_version") {
+        exclude group: "com.squareup.okhttp3"
+    }
+    implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version") {
+        exclude group: "com.squareup.okhttp3"
+    }
+    implementation"com.squareup.okhttp3:okhttp:$okhttp_version"
+
+    // Unit testing
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso_version"
+    androidTestImplementation "androidx.test:runner:$androidx_test_runner_version"
+
+    // App Center
+    implementation "com.microsoft.appcenter:appcenter-crashes:$appcenter_version"
+
+    fileTree(dir: 'libs', include: ['*.jar'])
+}
