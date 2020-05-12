@@ -62,8 +62,16 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list),
 
 
     override fun onFailedToLoadMovies() {
-        // TODO
-
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.fragment_movie_list_error_loading_title)
+            .setMessage(R.string.fragment_movie_list_error_loading_message)
+            .setNeutralButton(android.R.string.ok) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(R.string.fragment_movie_list_error_loading_retry) { dialog, _ ->
+                dialog.dismiss()
+                presenter.getMovies()
+            }.show()
     }
 
 
