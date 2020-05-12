@@ -3,7 +3,9 @@ package com.mackosoft.testtrax.view.movielist
 import android.app.Application
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.mackosoft.testtrax.R
 import com.mackosoft.testtrax.contract.movielist.MovieListContractInterface
 import com.mackosoft.testtrax.databinding.FragmentMovieListBinding
@@ -16,11 +18,16 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list),
     private lateinit var binding: FragmentMovieListBinding
     private lateinit var presenter: MovieListPresenter
 
-    private val adapter = MovieListAdapter()
+    private val adapter = MovieListAdapter { movie -> onMovieSelected(movie) }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentMovieListBinding.bind(view)
+
+        (activity as? AppCompatActivity)?.supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(false)
+            it.title = getString(R.string.app_name)
+        }
     }
 
 
@@ -55,6 +62,18 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list),
 
     override fun onFailedToLoadMovies() {
         // TODO
+    }
+
+
+    private fun onMovieSelected(movie: Movie) {
+        val directions = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(
+            movie.page.title,
+            movie.details.locale.en.synopsis,
+            movie.clips[0].versions.enus.sizes.hd720.src, // TODO handle no trailer
+            movie.clips[0].thumb
+        )
+
+        findNavController().navigate(directions)
     }
 
 

@@ -10,7 +10,9 @@ import com.mackosoft.testtrax.R
 import com.mackosoft.testtrax.databinding.MovieItemBinding
 import com.mackosoft.testtrax.network.model.Movie
 
-class MovieListAdapter : ListAdapter<Movie, MovieListAdapter.MovieItemViewHolder>(itemDifferCallback) {
+class MovieListAdapter(
+    private val onMovieSelected: (movie: Movie) -> Unit
+) : ListAdapter<Movie, MovieListAdapter.MovieItemViewHolder>(itemDifferCallback) {
 
 
     private companion object {
@@ -33,7 +35,7 @@ class MovieListAdapter : ListAdapter<Movie, MovieListAdapter.MovieItemViewHolder
     }
 
     override fun onBindViewHolder(holder: MovieItemViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(currentList[position])
     }
 
 
@@ -42,6 +44,12 @@ class MovieListAdapter : ListAdapter<Movie, MovieListAdapter.MovieItemViewHolder
     inner class MovieItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val binding = MovieItemBinding.bind(itemView)
+
+        init {
+            itemView.setOnClickListener {
+                currentList.getOrNull(adapterPosition)?.let(onMovieSelected)
+            }
+        }
 
         fun bind(movie: Movie) {
             binding.movieThumbnail.loadNetworkImage(movie.heros.movieHerosImage.imageUrl)

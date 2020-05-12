@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"
-        android:name="com.mackosoft.testtrax.view.MovieDetailsFragment"
+        android:name="com.mackosoft.testtrax.view.moviedetails.MovieDetailsFragment"
         android:label="MovieDetailsFragment" >
         <argument
             android:name="movieTitle"
@@ -23,6 +23,9 @@
             app:argType="string" />
         <argument
             android:name="trailerUrl"
+            app:argType="string" />
+        <argument
+            android:name="trailerThumbnail"
             app:argType="string" />
     </fragment>
 </navigation>
