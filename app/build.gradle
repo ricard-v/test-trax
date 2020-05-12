@@ -28,6 +28,8 @@ android {
 
             zipAlignEnabled true
             debuggable true
+
+            buildConfigField "boolean", "USES_APP_CENTER", "false"
         }
 
         release {
@@ -36,6 +38,8 @@ android {
             minifyEnabled false
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "boolean", "USES_APP_CENTER", "true"
         }
     }
 
@@ -87,6 +91,9 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso_version"
     androidTestImplementation "androidx.test:runner:$androidx_test_runner_version"
+
+    // App Center
+    implementation "com.microsoft.appcenter:appcenter-crashes:$appcenter_version"
 
     fileTree(dir: 'libs', include: ['*.jar'])
 }

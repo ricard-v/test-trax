@@ -5,7 +5,6 @@ import android.util.Log
 import com.mackosoft.testtrax.network.model.Movie
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 
 class NetworkApi(context: Context) {
 
