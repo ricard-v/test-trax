@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">TestTrax</string>
+    
+    <string name="app_name" translatable="false">TestTrax</string>
+    
+    <string name="fragment_movie_list_error_loading_title">Failure!</string>
+    <string name="fragment_movie_list_error_loading_message">Sorry, something went wrong while loading the movie list.\n\nPlease check your internet connection and try again.</string>
+    <string name="fragment_movie_list_error_loading_retry">Retry</string>
+
 </resources>

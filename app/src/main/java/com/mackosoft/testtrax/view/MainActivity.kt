@@ -1,7 +1,8 @@
-package com.mackosoft.testtrax
+package com.mackosoft.testtrax.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.mackosoft.testtrax.R
 
 class MainActivity : AppCompatActivity() {
 
