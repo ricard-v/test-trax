@@ -1,4 +1,4 @@
-package com.mackosoft.testtrax.model
+package com.mackosoft.testtrax.network
 
 /**
  * A generic class that holds a value with its loading status.

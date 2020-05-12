@@ -1,11 +1,9 @@
-package com.mackosoft.testtrax
+package com.mackosoft.testtrax.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.lifecycleScope
-import com.mackosoft.testtrax.model.Movie
-import com.mackosoft.testtrax.model.Result
+import com.mackosoft.testtrax.R
 import com.mackosoft.testtrax.network.NetworkApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

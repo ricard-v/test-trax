@@ -1,4 +1,4 @@
-package com.mackosoft.testtrax.model
+package com.mackosoft.testtrax.network.model
 
 import com.google.gson.annotations.SerializedName
 
