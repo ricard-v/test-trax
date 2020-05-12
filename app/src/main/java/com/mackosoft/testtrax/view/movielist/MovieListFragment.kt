@@ -79,7 +79,7 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list),
         val directions = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(
             movie.page.title,
             movie.details.locale.en.synopsis,
-            movie.clips[0].versions.enus.sizes.hd720.srcAlt, // TODO handle no trailer
+            movie.clips[0].versions.enus.sizes.hd720.srcAlt,
             movie.clips[0].thumb
         )
 
