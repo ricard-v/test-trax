@@ -44,7 +44,9 @@ class MovieListAdapter : ListAdapter<Movie, MovieListAdapter.MovieItemViewHolder
         private val binding = MovieItemBinding.bind(itemView)
 
         fun bind(movie: Movie) {
+            binding.movieThumbnail.loadNetworkImage(movie.heros.movieHerosImage.imageUrl)
             binding.labelMovieTitle.text = movie.page.title
+            binding.labelMovieReleaseDate.text = movie.page.releaseData
         }
     }
 }

@@ -34,6 +34,7 @@ class MovieListFragment : Fragment(R.layout.fragment_movie_list),
 
         binding.movieList.adapter = adapter
         binding.movieList.setHasFixedSize(true)
+        binding.movieList.addItemDecoration(MovieListDecoration())
 
         presenter.getMovies()
     }

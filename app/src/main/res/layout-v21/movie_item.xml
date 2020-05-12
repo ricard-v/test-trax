@@ -13,7 +13,8 @@
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
-       android:layout_height="wrap_content">
+       android:layout_height="wrap_content"
+       android:background="?attr/selectableItemBackgroundBorderless">
 
        <com.mackosoft.testtrax.custom.NetworkImageView
            android:id="@+id/movie_thumbnail"
@@ -22,7 +23,6 @@
            android:scaleType="centerCrop"
            app:layout_constraintTop_toTopOf="parent"
            app:layout_constraintStart_toStartOf="parent"
-           app:shapeAppearanceOverlay="@style/KitKatRoundedAlbumImage"
            tools:src="@android:drawable/ic_menu_camera"/>
 
        <TextView
