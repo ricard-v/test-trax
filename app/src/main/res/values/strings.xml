@@ -1,6 +1,8 @@
 <resources>
     
-    <string name="app_name" translatable="false">TestTrax</string>
+    <string name="app_name" translatable="false">MyMovies</string>
+    
+    <string name="app_center_app_secret" translatable="false">02c01b24-bd5c-48b0-8c08-6d06bc4f55ef</string>
     
     <string name="fragment_movie_list_error_loading_title">Failure!</string>
     <string name="fragment_movie_list_error_loading_message">Sorry, something went wrong while loading the movie list.\n\nPlease check your internet connection and try again.</string>

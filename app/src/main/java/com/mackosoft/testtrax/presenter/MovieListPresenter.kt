@@ -3,7 +3,6 @@ package com.mackosoft.testtrax.presenter
 import com.mackosoft.testtrax.contract.movielist.MovieListContractInterface
 import com.mackosoft.testtrax.model.movielist.MovieListModel
 import com.mackosoft.testtrax.network.Result
-import com.mackosoft.testtrax.network.model.Movie
 import kotlinx.coroutines.*
 import java.lang.ref.WeakReference
 import kotlin.coroutines.CoroutineContext
